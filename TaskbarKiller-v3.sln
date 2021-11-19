@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TaskbarKiller-v3", "TaskbarKiller-v3.vcxproj", "{660F5712-7C27-4337-9B70-2DD563B5D49D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{660F5712-7C27-4337-9B70-2DD563B5D49D}.Debug|x64.ActiveCfg = Debug|x64
+		{660F5712-7C27-4337-9B70-2DD563B5D49D}.Debug|x64.Build.0 = Debug|x64
+		{660F5712-7C27-4337-9B70-2DD563B5D49D}.Debug|x86.ActiveCfg = Debug|Win32
+		{660F5712-7C27-4337-9B70-2DD563B5D49D}.Debug|x86.Build.0 = Debug|Win32
+		{660F5712-7C27-4337-9B70-2DD563B5D49D}.Release|x64.ActiveCfg = Release|x64
+		{660F5712-7C27-4337-9B70-2DD563B5D49D}.Release|x64.Build.0 = Release|x64
+		{660F5712-7C27-4337-9B70-2DD563B5D49D}.Release|x86.ActiveCfg = Release|Win32
+		{660F5712-7C27-4337-9B70-2DD563B5D49D}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AF4E02C-958A-4A85-82AC-DCB7509E5EB3}
+	EndGlobalSection
+EndGlobal
