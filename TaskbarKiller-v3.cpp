@@ -1,6 +1,7 @@
 #include <Windows.h>
 #include <WinUser.h>
 #include <wingdi.h>
+#include <stdio.h>
 
 // hide command line window
 #pragma comment(linker, "/subsystem:\"windows\" /entry:\"mainCRTStartup\"")
@@ -10,8 +11,7 @@ const int HOTKEY_ID = 1;
 double horizontalScale;
 double verticalScale;
 HWND taskbar;
-HRGN region;
-HRGN empty;
+RECT rc;
 
 // Ref: https://stackoverflow.com/questions/54912038/querying-windows-display-scaling
 void get_display_scale() {
@@ -52,11 +52,15 @@ void unregister_hot_key() {
 }
 
 void hide_taskbar() {
+	auto empty = CreateRectRgn(0, 0, 0, 0);
 	SetWindowRgn(taskbar, empty, true);
+	DeleteObject(empty);
 }
 
 void show_taskbar() {
+	auto region = CreateRectRgn(rc.left, rc.top, rc.right * horizontalScale, rc.bottom * verticalScale);
 	SetWindowRgn(taskbar, region, true);
+	DeleteObject(region);
 }
 
 void run() {
@@ -83,20 +87,13 @@ int main()
 	// get taskbar handle
 	taskbar = FindWindowExA(NULL, NULL, "Shell_TrayWnd", NULL);
 
-	// store taskbar region
-	RECT rc;
+	// get taskbar size
 	GetWindowRect(taskbar, &rc);
-	region = CreateRectRgn(rc.left, rc.top, rc.right * horizontalScale, rc.bottom * verticalScale);
-
-	// create an empty region to hide taskbar
-	empty = CreateRectRgn(0, 0, 0, 0);
 
 	// handle hot key, hide/show taskbar
 	run();
 
 	// clean up
-	DeleteObject(empty);
-	DeleteObject(region);
 	unregister_hot_key();
 }
 
