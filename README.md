@@ -1,8 +1,6 @@
 # TaskbarKiller-v3
 
-Press `Win` + `~` to hide windows taskbar, press again to bring it back.
-
-> This version maybe not as good as [TaskbarKiller-v2](https://github.com/DiscreteTom/TaskbarKiller-v2), but this uses another approach, which maybe inspiring for the future.
+Compared with [TaskbarKiller-v2](https://github.com/DiscreteTom/TaskbarKiller-v2), now you can use `Win` + `Number` key to switch applications.
 
 > This version is inspired by [RoundedTB](https://github.com/torchgm/RoundedTB).
 
