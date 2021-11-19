@@ -11,7 +11,7 @@ const int HOTKEY_ID = 1;
 double horizontalScale;
 double verticalScale;
 HWND taskbar;
-RECT rc;
+RECT position;
 
 // Ref: https://stackoverflow.com/questions/54912038/querying-windows-display-scaling
 void get_display_scale() {
@@ -58,7 +58,7 @@ void hide_taskbar() {
 }
 
 void show_taskbar() {
-	auto region = CreateRectRgn(rc.left, rc.top, rc.right * horizontalScale, rc.bottom * verticalScale);
+	auto region = CreateRectRgn(position.left, position.top, position.right * horizontalScale, position.bottom * verticalScale);
 	SetWindowRgn(taskbar, region, true);
 	DeleteObject(region);
 }
@@ -87,8 +87,8 @@ int main()
 	// get taskbar handle
 	taskbar = FindWindowExA(NULL, NULL, "Shell_TrayWnd", NULL);
 
-	// get taskbar size
-	GetWindowRect(taskbar, &rc);
+	// get taskbar position
+	GetWindowRect(taskbar, &position);
 
 	// handle hot key, hide/show taskbar
 	run();
