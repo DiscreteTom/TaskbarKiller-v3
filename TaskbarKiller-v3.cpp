@@ -79,6 +79,20 @@ void run() {
 	}
 }
 
+void format_position(){
+	if (position.left < 0) {
+		// taskbar is on the left, move right
+
+		position.right -= position.left;
+		position.left = 0;
+	}
+	if (position.bottom < 0) {
+		// taskbar is on the bottom, move up
+		position.top -= position.bottom;
+		position.bottom = 0;
+	}
+}
+
 int main()
 {
 	get_display_scale();
@@ -89,6 +103,7 @@ int main()
 
 	// get taskbar position
 	GetWindowRect(taskbar, &position);
+	format_position();
 
 	// handle hot key, hide/show taskbar
 	run();
