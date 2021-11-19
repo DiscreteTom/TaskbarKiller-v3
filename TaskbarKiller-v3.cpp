@@ -94,6 +94,7 @@ int main()
 	run();
 
 	// clean up
+	show_taskbar();
 	unregister_hot_key();
 }
 
